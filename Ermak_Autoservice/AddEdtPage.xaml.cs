@@ -20,6 +20,7 @@ namespace Ermak_Autoservice
     /// </summary>
     public partial class AddEdtPage : Page
     {
+
         private Service _currentServise = new Service();
         public AddEdtPage(Service SelectedService)
         {
@@ -60,6 +61,8 @@ namespace Ermak_Autoservice
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+
         }
+
     }
 }
