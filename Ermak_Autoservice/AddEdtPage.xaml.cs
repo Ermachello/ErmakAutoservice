@@ -36,12 +36,19 @@ namespace Ermak_Autoservice
 
             if (string.IsNullOrWhiteSpace(_currentServise.Title))
                 errors.AppendLine("Укажите название услуги");
+
             if (_currentServise.Cost == 0)
                 errors.AppendLine("Укажите стоимость услуги");
-            if (_currentServise.Discount == null)
-                errors.AppendLine("Укажите скидку");
+
+            if (_currentServise.Discount <0 || _currentServise.Discount > 100)
+                errors.AppendLine("Укажите скидку от 0 до 100");
+
             if (string.IsNullOrWhiteSpace(_currentServise.Duration))
                 errors.AppendLine("Укажите длительность услуги");
+
+            if (Convert.ToInt32(_currentServise.Duration) > 240)
+                errors.AppendLine("Длительность не может быть больше 240 минут");
+
             if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());

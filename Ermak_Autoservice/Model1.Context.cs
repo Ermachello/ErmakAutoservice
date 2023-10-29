@@ -19,6 +19,7 @@ namespace Ermak_Autoservice
             : base("name=Ermak_autoserviceEntities")
         {
         }
+
         private static Ermak_autoserviceEntities _context;
 
         public static Ermak_autoserviceEntities GetContext()
@@ -28,6 +29,7 @@ namespace Ermak_Autoservice
 
             return _context;
         }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -43,6 +45,7 @@ namespace Ermak_Autoservice
         public virtual DbSet<ProductSale> ProductSale { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ServicePhoto> ServicePhoto { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
     }
 }
