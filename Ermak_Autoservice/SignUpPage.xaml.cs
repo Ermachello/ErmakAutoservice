@@ -88,10 +88,17 @@ namespace Ermak_Autoservice
             else
             {
                 string[] start = s.Split(new char[] { ':' });
-                int starHour = Convert.ToInt32(start[0].ToString()) * 60;
-                int starMin = Convert.ToInt32(start[1].ToString());
+                int startHour = Convert.ToInt32(start[0].ToString()) * 60;
+                int startMin = Convert.ToInt32(start[1].ToString());
 
-                int sum = starHour + starMin + Convert.ToInt32(_currentService.Duration);
+                if (startHour/60 > 23 || startMin > 59)
+                {
+                    MessageBox.Show("Введите действительное время");
+                    TBStart.Clear();
+                    return;
+                }
+
+                int sum = startHour + startMin + Convert.ToInt32(_currentService.Duration);
 
                 int EndHour = sum / 60;
                 int EndMin = sum % 60;

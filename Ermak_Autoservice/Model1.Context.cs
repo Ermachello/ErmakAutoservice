@@ -19,7 +19,6 @@ namespace Ermak_Autoservice
             : base("name=Ermak_autoserviceEntities")
         {
         }
-
         private static Ermak_autoserviceEntities _context;
 
         public static Ermak_autoserviceEntities GetContext()

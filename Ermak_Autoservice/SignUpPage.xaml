@@ -47,10 +47,8 @@
         <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
             <TextBox Name="TBStart" Height="30" Width="200" FontSize="20"
                      TextChanged="TBStart_TextChanged"></TextBox>
-            
-            
-            <TextBlock Text="Время окончания:" FontSize="15" Height="30" Margin="20"></TextBlock>
-            <TextBox Name="TBEnd" Height="30" Width="200" FontSize="20" TextChanged="TBEnd_TextChanged"></TextBox>
+            <TextBlock Text="Время окончания" FontSize="15" Height="20"/>
+            <TextBox x:Name="TBEnd" IsEnabled="false" Height="30" Width="200" FontSize="20"/>
         </StackPanel>
 
         <Button Name="SaveButton" Content="Сохранить" Grid.Row="5"

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8dfe170d7ef240b2bb36369c3aaf8b32" Name="Diagram1">
+      <Diagram DiagramId="98605ad6a11f4cdaab02d53ae20df15c" Name="Diagram1">
         <EntityTypeShape EntityType="Ermak_autoserviceModel.Client" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Ermak_autoserviceModel.ClientService" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Ermak_autoserviceModel.DocumentByService" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
@@ -19,7 +19,7 @@
         <EntityTypeShape EntityType="Ermak_autoserviceModel.Tag" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
         <AssociationConnector Association="Ermak_autoserviceModel.FK_client_a_import_Gender" ManuallyRouted="false" />
         <AssociationConnector Association="Ermak_autoserviceModel.FK_ClientService_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="Ermak_autoserviceModel.FK_ClientService_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="Ermak_autoserviceModel.FK_ClientService_Service1" ManuallyRouted="false" />
         <AssociationConnector Association="Ermak_autoserviceModel.FK_DocumentByService_ClientService" ManuallyRouted="false" />
         <AssociationConnector Association="Ermak_autoserviceModel.FK_ProductSale_ClientService" ManuallyRouted="false" />
         <AssociationConnector Association="Ermak_autoserviceModel.FK_Product_Manufacturer" ManuallyRouted="false" />

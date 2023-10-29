@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="Автосевис Ермак" Height="450" Width="800" FontFamily="Tw Cen MT" Icon="Resources/service_logo.ico">
 
-    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
