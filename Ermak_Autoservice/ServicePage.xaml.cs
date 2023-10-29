@@ -26,11 +26,77 @@ namespace Ermak_Autoservice
 
             var currentServices = Ermak_autoserviceEntities.GetContext().Service.ToList();
             ServiceListView.ItemsSource = currentServices;
+
+            ComboType.SelectedIndex = 0;
+            UpdateSevices();
         }
+        
+        private void UpdateSevices()
+        {
+            var currentServices = Ermak_autoserviceEntities.GetContext().Service.ToList();
+            //Условия фильтрации
+            if(ComboType.SelectedIndex == 0) 
+            {
+                currentServices = currentServices.Where(p=> (p.Discount >= 0 && p.Discount <= 100)).ToList();
+            }
+            if (ComboType.SelectedIndex == 1)
+            {
+                currentServices = currentServices.Where(p => (p.Discount >= 0 && p.Discount < 5)).ToList();
+            }
+            if(ComboType.SelectedIndex == 2)
+            {
+                currentServices = currentServices.Where(p => (p.Discount >= 5 && p.Discount < 15)).ToList();
+            }
+            if (ComboType.SelectedIndex == 3)
+            {
+                currentServices = currentServices.Where(p => (p.Discount >= 15 && p.Discount < 30)).ToList();
+            }
+            if (ComboType.SelectedIndex == 4)
+            {
+                currentServices = currentServices.Where(p => (p.Discount >= 30 && p.Discount < 70)).ToList();
+            }
+            if (ComboType.SelectedIndex == 5)
+            {
+                currentServices = currentServices.Where(p => (p.Discount >= 70 && p.Discount < 100)).ToList();
+            }
+            //Поиск данных при вводе текста в окно
+            currentServices = currentServices.Where (p=> p.Title.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
+            if(RButtonDown.IsChecked.Value)
+            {
+                currentServices = currentServices.OrderByDescending (p => p.Cost).ToList();
+            }
+            if (RButtonUp.IsChecked.Value)
+            {
+                currentServices = currentServices.OrderBy(p => p.Cost).ToList();
+            }
+            ServiceListView.ItemsSource = currentServices;
+        }
+
+     
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AddEdtPage());
+        }
+
+        private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateSevices();
+        }
+
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateSevices();
+        }
+
+        private void RButtonUp_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateSevices();
+        }
+
+        private void RButtonDown_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateSevices();
         }
     }
 }
