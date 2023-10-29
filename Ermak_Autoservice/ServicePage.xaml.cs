@@ -72,11 +72,11 @@ namespace Ermak_Autoservice
             ServiceListView.ItemsSource = currentServices;
         }
 
-     
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEdtPage());
+            Manager.MainFrame.Navigate(new AddEdtPage(null));
         }
 
         private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -88,15 +88,31 @@ namespace Ermak_Autoservice
         {
             UpdateSevices();
         }
-
+        private void RButtonDown_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateSevices();
+        }
         private void RButtonUp_Checked(object sender, RoutedEventArgs e)
         {
             UpdateSevices();
         }
-
-        private void RButtonDown_Checked(object sender, RoutedEventArgs e)
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            UpdateSevices();
+            Manager.MainFrame.Navigate(new AddEdtPage(null));
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(Visibility == Visibility.Visible) 
+            {
+                Ermak_autoserviceEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ServiceListView.ItemsSource = Ermak_autoserviceEntities.GetContext().Service.ToList();
+            }
+        }
+
+        private void EditButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEdtPage((sender as Button).DataContext as Service));
         }
     }
 }
